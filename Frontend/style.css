@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 340px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #34495e;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin: 25px 0 10px 0;
+    color: #7f8c8d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.inline-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+.list-container {
+    max-height: 350px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.item-box {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 12px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 10px;
+}
+
+.item-box p {
+    font-size: 13px;
+    margin-top: 4px;
+    color: #555;
+}
+
+/* ==========================================
+   👇 CLASSI ESTRATTE DALL'HTML
+   ========================================== */
+
+/* Gestisce la barra dello stato dell'autenticazione */
+.auth-status-bar {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.auth-status-bar.authenticated {
+    color: #2ecc71;
+}
+
+.auth-status-bar.unauthenticated {
+    color: #e74c3c;
+} 
+
+/* Gestisce il pulsante rosso per disconnettersi */
+.btn-logout {
+    display: none; /* Sarà JavaScript a metterlo in 'block' quando serve */
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-logout:hover {
+    background-color: #d32f2f;
+}
+
+/* ==========================================
+   🌐 AGGIUNTA: STILE PULSANTE LOGIN GOOGLE
+   ========================================== */
+.btn-google {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #2c3e50;
+    border: 1px solid #bdc3c7;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    transition: background-color 0.2s, color 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.btn-google:hover {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-color: #2c3e50;
+}

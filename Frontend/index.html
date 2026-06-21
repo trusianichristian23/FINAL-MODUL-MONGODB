@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Dashboard - Client</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dashboard Gestione Blog & Autori (Token Based Auth)</h1>
+        <div id="authStatus" class="auth-status-bar"></div>
+    </header>
+
+    <main class="container">
+        <section class="card" id="loginSection">
+            <h2>🔐 Accedi al Blog</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" value="christian.test@example.com" placeholder="La tua Email" required>
+                <input type="password" id="loginPassword" value="ChristianPass2026!" placeholder="La tua Password" required>
+                <button type="submit">Effettua il Login</button>
+            </form>
+            
+            <a href="#" id="googleLoginBtn" class="btn-google">
+                🌐 Accedi con Google
+            </a>
+
+            <button id="logoutBtn" class="btn-logout">Effettua il Logout</button>
+        </section>
+
+        <section class="card">
+            <h2>✍ *Aggiungi un Autore*</h2>
+            <form id="authorForm">
+                <input type="text" id="authNome" value="Christian" placeholder="Nome" required>
+                <input type="text" id="authCognome" value="Trusiani" placeholder="Cognome" required>
+                <input type="email" id="authEmail" value="christian.test@example.com" placeholder="Email" required>
+                <input type="password" id="authPassword" value="ChristianPass2026!" placeholder="Password" required>
+                <input type="date" id="authData" value="1999-01-01" placeholder="Data di Nascita" required>
+                <input type="url" id="authAvatar" value="https://placehold.co/150" placeholder="URL Avatar" required>
+                <button type="submit">Salva Autore</button>
+            </form>
+
+            <h3>Lista Autori Correnti</h3>
+            <div id="authorsList" class="list-container"></div>
+        </section>
+
+        <section class="card">
+            <h2>📝 Crea un Nuovo Blog Post</h2>
+            <form id="postForm">
+                <input type="text" id="postCategory" placeholder="Categoria (es. Technology)" required>
+                <input type="text" id="postTitle" placeholder="Titolo del Post" required>
+                <input type="url" id="postCover" placeholder="URL Immagine di Copertina" required>
+                <input type="email" id="postAuthor" value="christian.test@example.com" placeholder="Email dell'Autore (deve esistere)" required>
+                <div class="inline-inputs">
+                    <input type="number" id="postReadValue" placeholder="Tempo di lettura" required>
+                    <input type="text" id="postReadUnit" placeholder="Unità" value="min" required>
+                </div>
+                <textarea id="postContent" placeholder="Contenuto del post..." rows="4" required></textarea>
+                <button type="submit">Pubblica Post</button>
+            </form>
+
+            <h3>Lista Blog Posts</h3>
+            <div id="postsList" class="list-container"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
