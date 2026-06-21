@@ -1,13 +1,11 @@
 const BACKEND_URL = 'https://final-modul-mongodb.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 🌐 CONTROLLO RECOVERY TOKEN DA GOOGLE OAUTH
     const urlParams = new URLSearchParams(window.location.search);
     const googleToken = urlParams.get('token');
 
     if (googleToken) {
-        localStorage.setItem('accessToken', googleToken); // Salva il token inviato dal backend
-        // Pulisce la barra dell'indirizzo del browser per estetica e sicurezza
+        localStorage.setItem('accessToken', googleToken);
         window.history.replaceState({}, document.title, window.location.pathname);
         alert('Login con Google effettuato con successo!');
     }
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPosts();
 });
 
-// CONTROLLO UI UTENTE E STATO TOKEN (Gestione classi e visibilità pulsante Google)
 function checkAuthUI() {
     const token = localStorage.getItem('accessToken');
     const authStatus = document.getElementById('authStatus');
@@ -31,7 +28,7 @@ function checkAuthUI() {
             authStatus.className = "auth-status-bar authenticated"; 
         }
         if (loginForm) loginForm.style.display = 'none';
-        if (googleLoginBtn) googleLoginBtn.style.display = 'none'; // Nasconde il tasto Google se già connesso
+        if (googleLoginBtn) googleLoginBtn.style.display = 'none';
         if (logoutBtn) logoutBtn.style.display = 'block'; 
     } else {
         if (authStatus) {
@@ -40,14 +37,13 @@ function checkAuthUI() {
         }
         if (loginForm) loginForm.style.display = 'flex';
         if (googleLoginBtn) {
-            googleLoginBtn.style.display = 'inline-block'; // Mostra il tasto Google se disconnesso
-           googleLoginBtn.href = `${BACKEND_URL}/authors/google`;
+            googleLoginBtn.style.display = 'inline-block';
+            googleLoginBtn.href = `${BACKEND_URL}/authors/googleLogin`;
         }
         if (logoutBtn) logoutBtn.style.display = 'none'; 
     }
 }
 
-// 🔑 COMPITO: Esegue il login classico e memorizza il token nel localStorage
 document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
@@ -75,7 +71,6 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
     }
 });
 
-// LOGOUT UTENTE
 document.getElementById('logoutBtn')?.addEventListener('click', () => {
     localStorage.removeItem('accessToken');
     alert('Disconnesso correttamente.');
@@ -83,7 +78,6 @@ document.getElementById('logoutBtn')?.addEventListener('click', () => {
     fetchPosts();
 });
 
-// GET AUTORI (Accessibile liberamente)
 async function fetchAuthors() {
     try {
         const response = await fetch(`${BACKEND_URL}/authors`);
@@ -111,7 +105,6 @@ async function fetchAuthors() {
     }
 }
 
-// POST REGISTRAZIONE AUTORE
 document.getElementById('authorForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const payload = {
@@ -141,7 +134,6 @@ document.getElementById('authorForm')?.addEventListener('submit', async (e) => {
     }
 });
 
-// 🔒 GET POST (Usa il token nell'header)
 async function fetchPosts() {
     const token = localStorage.getItem('accessToken');
     const container = document.getElementById('postsList');
@@ -186,7 +178,6 @@ async function fetchPosts() {
     }
 }
 
-// 🔒 POST CREAZIONE BLOG POST (Usa il token nell'header)
 document.getElementById('postForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('accessToken');
