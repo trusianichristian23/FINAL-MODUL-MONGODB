@@ -41,7 +41,7 @@ function checkAuthUI() {
         if (loginForm) loginForm.style.display = 'flex';
         if (googleLoginBtn) {
             googleLoginBtn.style.display = 'inline-block'; // Mostra il tasto Google se disconnesso
-            googleLoginBtn.href = `${BACKEND_URL}/authors/googleLogin`; // 👈 Rende dinamico il link verso Render
+           googleLoginBtn.href = `${BACKEND_URL}/authors/google`;
         }
         if (logoutBtn) logoutBtn.style.display = 'none'; 
     }
