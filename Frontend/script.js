@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://final-modulo-mongodb-backend.onrender.com';
+const BACKEND_URL = 'https://final-modul-mongodb.onrender.com';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 🌐 CONTROLLO RECOVERY TOKEN DA GOOGLE OAUTH
